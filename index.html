@@ -1323,6 +1323,62 @@ header nav > .dropdown:not(:last-child)::after {
     </div>
 </section>
 
+<section id="live-charts" style="padding: 40px 20px; max-width: 1200px; margin: auto; font-family: Inter, sans-serif;">
+
+ 	<h2>
+            <span data-lang-block="de">Live‑Charts für Gold & Silber</span>
+            <span data-lang-block="en" style="display:none;">Live‑Charts for Gold & Silver</span>
+        </h2>
+
+    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+
+        <!-- GOLD CHART -->
+        <div style="flex: 1; min-width: 350px;">
+            <h3 style="margin-bottom: 10px;">Goldpreis (XAU/USD)</h3>
+            <div class="tradingview-widget-container">
+                <div id="gold_chart"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                <script type="text/javascript">
+                new TradingView.widget({
+                    "width": "100%",
+                    "height": 400,
+                    "symbol": "OANDA:XAUUSD",
+                    "interval": "D",
+                    "timezone": "Europe/Berlin",
+                    "theme": "light",
+                    "style": "1",
+                    "locale": "de",
+                    "container_id": "gold_chart"
+                });
+                </script>
+            </div>
+        </div>
+
+        <!-- SILVER CHART -->
+        <div style="flex: 1; min-width: 350px;">
+            <h3 style="margin-bottom: 10px;">Silberpreis (XAG/USD)</h3>
+            <div class="tradingview-widget-container">
+                <div id="silver_chart"></div>
+                <script type="text/javascript">
+                new TradingView.widget({
+                    "width": "100%",
+                    "height": 400,
+                    "symbol": "OANDA:XAGUSD",
+                    "interval": "D",
+                    "timezone": "Europe/Berlin",
+                    "theme": "light",
+                    "style": "1",
+                    "locale": "de",
+                    "container_id": "silver_chart"
+                });
+                </script>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
 <!-- GOLD SECTION -->
 <section id="gold" class="section fade-in">
     <div class="product">
@@ -1377,30 +1433,37 @@ header nav > .dropdown:not(:last-child)::after {
                 <div id="goldMonthlyResult" class="result"></div>
             </div>
 
-            <div class="product-card">
-                <h3>
-                    <span data-lang-block="de">Gold-Einmalanlage</span>
-                    <span data-lang-block="en" style="display:none;">Gold One-Time Purchase</span>
-                </h3>
-                <p>
-                    <span data-lang-block="de">
-                        Investieren Sie einmalig in physisches Gold – ideal, um bestehendes Kapital in Sachwerte umzuschichten.
-                    </span>
-                    <span data-lang-block="en" style="display:none;">
-                        Invest once in physical gold – ideal for shifting existing capital into tangible assets.
-                    </span>
-                </p>
-                <label for="goldLump">
-                    <span data-lang-block="de">Wie viel möchten Sie einmalig investieren?</span>
-                    <span data-lang-block="en" style="display:none;">How much would you like to invest as a lump sum?</span>
-                </label>
-                <input id="goldLump" type="number" min="0" placeholder="z. B. 10000" />
-                <button type="button" onclick="calculateGoldLump()">
-                    <span data-lang-block="de">Berechnen</span>
-                    <span data-lang-block="en" style="display:none;">Calculate</span>
-                </button>
-                <div id="goldLumpResult" class="result"></div>
-            </div>
+<div class="product-card">
+    <h3>
+        <span data-lang-block="de">Gold-Einmalanlage</span>
+        <span data-lang-block="en" style="display:none;">Gold One-Time Purchase</span>
+    </h3>
+    <p>
+        <span data-lang-block="de">
+            Investieren Sie einmalig in physisches Gold – ideal, um bestehendes Kapital in Sachwerte umzuschichten.
+        </span>
+        <span data-lang-block="en" style="display:none;">
+            Invest once in physical gold – ideal for shifting existing capital into tangible assets.
+        </span>
+    </p>
+
+    <label for="goldLump">
+        <span data-lang-block="de">Wie viel möchten Sie einmalig investieren?</span>
+        <span data-lang-block="en" style="display:none;">How much would you like to invest as a lump sum?</span>
+    </label>
+
+    <input id="goldLump" type="number" min="0" placeholder="z. B. 10000" />
+
+    <button type="button" onclick="calculateGoldLump()">
+        <span data-lang-block="de">Berechnen</span>
+        <span data-lang-block="en" style="display:none;">Calculate</span>
+    </button>
+
+    <div id="goldLumpResult" class="result"></div>
+
+    <!-- STEP 2: paste this EXACTLY here -->
+    <span id="gold-live-price" style="display:none;">72.00</span>
+</div>
         </div>
 
         <div class="product-steps">
@@ -1519,29 +1582,37 @@ header nav > .dropdown:not(:last-child)::after {
             </div>
 
             <div class="product-card">
-                <h3>
-                    <span data-lang-block="de">Silber-Einmalanlage</span>
-                    <span data-lang-block="en" style="display:none;">Silver One-Time Purchase</span>
-                </h3>
-                <p>
-                    <span data-lang-block="de">
-                        Investieren Sie einmalig in Silber – für alle, die Chancen in diesem Industriemetall sehen.
-                    </span>
-                    <span data-lang-block="en" style="display:none;">
-                        Invest once in silver – for those who see opportunities in this industrial metal.
-                    </span>
-                </p>
-                <label for="silverLump">
-                    <span data-lang-block="de">Wie viel möchten Sie einmalig investieren?</span>
-                    <span data-lang-block="en" style="display:none;">How much would you like to invest as a lump sum?</span>
-                </label>
-                <input id="silverLump" type="number" min="0" placeholder="z. B. 5000" />
-                <button type="button" onclick="calculateSilverLump()">
-                    <span data-lang-block="de">Berechnen</span>
-                    <span data-lang-block="en" style="display:none;">Calculate</span>
-                </button>
-                <div id="silverLumpResult" class="result"></div>
-            </div>
+    <h3>
+        <span data-lang-block="de">Silber-Einmalanlage</span>
+        <span data-lang-block="en" style="display:none;">Silver One-Time Purchase</span>
+    </h3>
+
+    <p>
+        <span data-lang-block="de">
+            Investieren Sie einmalig in physisches Silber – ideal für langfristige Sachwertstrategie.
+        </span>
+        <span data-lang-block="en" style="display:none;">
+            Invest once in physical silver – ideal for long-term tangible asset strategy.
+        </span>
+    </p>
+
+    <label for="silverLump">
+        <span data-lang-block="de">Wie viel möchten Sie einmalig investieren?</span>
+        <span data-lang-block="en" style="display:none;">How much would you like to invest as a lump sum?</span>
+    </label>
+
+    <input id="silverLump" type="number" min="0" placeholder="z. B. 5000" />
+
+    <button type="button" onclick="calculateSilverLump()">
+        <span data-lang-block="de">Berechnen</span>
+        <span data-lang-block="en" style="display:none;">Calculate</span>
+    </button>
+
+    <div id="silverLumpResult" class="result"></div>
+
+    <!-- STEP 2: paste this EXACTLY here -->
+    <span id="silver-live-price" style="display:none;">0.85</span>
+</div>
         </div>
     </div>
 </section>
@@ -1757,12 +1828,10 @@ header nav > .dropdown:not(:last-child)::after {
             <p>
                 <span data-lang-block="de">
                     Viele Menschen fühlen sich von Finanzprodukten überfordert oder stehen dem Finanzsystem skeptisch gegenüber.
-                    Mit physischen Edelmetallen kann ein Teil des Vermögens aus diesem System herausgelöst werden – ohne
-                    komplizierte Fachbegriffe.
+                    Gold und Silber sind weltweit geschätzt, kulturell tief verankert und historisch außergewöhnlich beständig.
                 </span>
                 <span data-lang-block="en" style="display:none;">
-                    Many people feel overwhelmed by financial products or distrust the financial system. With physical precious
-                    metals, part of the wealth can be taken out of that system – without complicated jargon.
+                    Many people feel overwhelmed by financial products or distrust the financial system. Gold and silver are globally trusted, culturally valued, and historically resilient.
                 </span>
             </p>
 
@@ -1837,6 +1906,7 @@ header nav > .dropdown:not(:last-child)::after {
 
     </form>
 </section>
+
 
 <footer  class="site-footer">
     <span data-lang-block="de">© 2026 Naresh Virothi – Gold &amp; Silber Beratung · Deutsche Vermögensberatung AG (DVAG)</span>
@@ -1993,6 +2063,40 @@ document.addEventListener("mousemove", function(e) {
     const y = (e.clientY - window.innerHeight / 2) / 80;
     text.style.transform = `translate(${x}px, ${y}px)`;
 });
+</script>
+
+<script>
+function calculateGoldLump() {
+    const investment = parseFloat(document.getElementById("goldLump").value);
+    const livePrice = parseFloat(document.getElementById("gold-live-price").innerText);
+
+    if (!investment || !livePrice) {
+        document.getElementById("goldLumpResult").innerText = "Bitte Betrag eingeben.";
+        return;
+    }
+
+    const grams = investment / livePrice;
+
+    document.getElementById("goldLumpResult").innerText =
+        `Sie erhalten aktuell ca. ${grams.toFixed(2)} g Gold.`;
+}
+</script>
+
+<script>
+function calculateSilverLump() {
+    const investment = parseFloat(document.getElementById("silverLump").value);
+    const livePrice = parseFloat(document.getElementById("silver-live-price").innerText);
+
+    if (!investment || !livePrice) {
+        document.getElementById("silverLumpResult").innerText = "Bitte Betrag eingeben.";
+        return;
+    }
+
+    const grams = investment / livePrice;
+
+    document.getElementById("silverLumpResult").innerText =
+        `Sie erhalten aktuell ca. ${grams.toFixed(2)} g Silber.`;
+}
 </script>
 
 </body>
