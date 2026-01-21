@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dvag-gold-silver.vercel.app/sitemap.xml
